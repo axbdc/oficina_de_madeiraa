@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madeiras de Autor - Design Exclusivo e Luxuoso</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração de fontes e cores para LUXO REFINADO -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0A0A0A', // Preto Ultra-Deep (Fundo Principal)
+                        'accent-gold': '#B88846', // Ouro Escovado (Sólido)
+                        'bg-light': '#161616', // Cinza Escuro Suave (Secções Intermédias)
+                        'text-contrast': '#F7F7F7', // Branco Suave
+                        'text-body': '#C0C0C0', // Cinza Claro (Mais legível e clean)
+                        'hero-overlay': 'rgba(10, 10, 10, 0.75)', // Overlay mais escuro
+                    },
+                    fontFamily: {
+                        // Poppins (Corpo: moderno, limpo, leve)
+                        sans: ['Poppins', 'sans-serif'], 
+                        // Lora (Títulos: dramático mas elegante)
+                        serif: ['Lora', 'serif'], 
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    }
+                }
+            },
+        }
+    </script>
+    <!-- Google Fonts: Lora (Títulos) e Poppins (Corpo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,300;0,400;0,600&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variável CSS para acesso fácil ao Gold */
+        :root {
+            --accent-gold-rgb: 184, 136, 70;
+            --tw-accent-gold: #B88846;
+        }
+
+        /* Estilos base: Aumentar o espaçamento para o luxo (10rem) */
+        html { scroll-behavior: smooth; }
+        .section-padding { padding-top: 10rem; padding-bottom: 10rem; }
+
+        /* Animação Scroll-Reveal (mantida, mas mais suave) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px); /* Movimento mais subtil */
+            transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* EFEITO DE BOTÃO LUXUOSO (Ouro) - MANTIDO ELEGANTEMENTE */
+        .btn-lux-animated {
+            box-shadow: 0 3px 10px rgba(var(--accent-gold-rgb), 0.3);
+            transition: all 0.3s ease-out;
+            border-bottom: 3px solid #9C7741;
+            transform: translateY(0);
+        }
+        .btn-lux-animated:hover {
+            box-shadow: 0 8px 18px rgba(var(--accent-gold-rgb), 0.5);
+            transform: translateY(-2px);
+            background-color: #D2A86E; 
+            border-bottom: 0px solid #9C7741; 
+        }
+
+        /* EFEITO PARALLAX NO HERO - MAIS DRAMÁTICO */
+        .hero-bg {
+            /* Fundo escuro sem texto de substituição - Apenas cor sólida ou imagem */
+            background-image: url('https://placehold.co/1920x1080/101010/101010'); /* Cor escura sólida */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+        }
+        
+        /* Ícones SVG para Design de Luxo */
+        .icon-svg {
+            width: 3.5rem; /* Um pouco maior */
+            height: 3.5rem;
+            color: var(--tw-accent-gold); 
+            stroke-width: 1.2; /* Linhas mais finas para 'clean' */
+            transition: transform 0.3s ease-out; 
+        }
+        
+        /* ÍCONE SHINE/HOVER - Apenas escala subtil */
+        .icon-shine-container:hover .icon-svg {
+            transform: scale(1.05); /* Escala muito subtil */
+            filter: drop-shadow(0 0 4px rgba(var(--accent-gold-rgb), 0.5)); 
+        }
+
+        /* Hover no Item do Portfólio - Mais elegante, sem translação */
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        .portfolio-overlay {
+            transition: opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        /* Estilo para a mensagem de sucesso */
+        .message-success {
+            background-color: #38a169; 
+            color: white;
+            box-shadow: 0 5px 15px rgba(56, 161, 105, 0.4);
+        }
+        
+    </style>
+</head>
+<body class="font-sans text-text-body bg-primary-dark antialiased">
+
+    <!-- 1. BARRA DE NAVEGAÇÃO FIXA E DISCRETA -->
+    <header class="sticky top-0 z-50 bg-primary-dark bg-opacity-95 border-b border-accent-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex justify-between items-center">
+            <!-- Logo - Dourado Sólido e Dramático -->
+            <a href="#" class="text-4xl font-serif tracking-widest text-accent-gold uppercase hover:text-white transition duration-300 font-light">
+                M.A.
+            </a>
+            
+            <!-- Links de Navegação -->
+            <nav class="hidden md:flex space-x-12 text-lg font-light">
+                <a href="#missao" class="nav-link text-text-body hover:text-accent-gold transition duration-300">A Marca</a>
+                <a href="#vantagens" class="nav-link text-text-body hover:text-accent-gold transition duration-300">Inovação</a>
+                <a href="#portfolio" class="nav-link text-text-body hover:text-accent-gold transition duration-300">Galeria</a>
+                <a href="#contacto" class="nav-link text-text-body hover:text-accent-gold transition duration-300">Consultoria</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. SECÇÃO HERO (Com Parallax e Grande Tipografia - CLEAN/AESTHETIC) -->
+    <section id="hero-section" class="hero-bg min-h-screen flex items-center justify-center text-center border-b border-accent-gold/10">
+        <!-- Overlay escuro MAIS INTENSO para contraste dramático -->
+        <div class="bg-primary-dark bg-opacity-75 absolute inset-0"></div> 
+        
+        <div class="relative max-w-7xl mx-auto p-8 z-10 text-text-contrast">
+            <!-- Título Principal (Mais fino, maior e DOURADO mais intenso) -->
+            <h1 class="text-8xl sm:text-9xl lg:text-[10rem] font-serif font-light mb-8 leading-none reveal" style="transition-delay: 0.2s;">
+                <span class="text-accent-gold">Design</span> de Autor.
+            </h1>
+            <p class="text-xl sm:text-3xl mb-12 font-extralight text-text-body max-w-4xl mx-auto reveal leading-relaxed" style="transition-delay: 0.4s;">
+                Criamos peças arquitetónicas em madeira nobre que elevam o seu espaço exterior. Exclusividade, performance e arte em cada junta.
+            </p>
+            <!-- Botão com efeito metálico refinado -->
+            <a href="#contacto" class="btn-lux-animated inline-block px-12 py-4 text-xl font-medium tracking-widest uppercase rounded-sm bg-accent-gold text-primary-dark transition duration-300 reveal" style="transition-delay: 0.6s;">
+                Agendar Consultoria Exclusiva
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. MISSÃO E VALORES (Elegante e Minimalista - Foco na Curadoria) -->
+    <section id="missao" class="section-padding bg-bg-light text-text-contrast">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-lg tracking-widest uppercase text-accent-gold mb-2 reveal">Serviço White Glove</p>
+            <h2 class="text-6xl font-serif font-light mb-24 reveal">A Metodologia da Exclusividade</h2>
+            
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12">
+                
+                <div class="p-8 reveal icon-shine-container border border-accent-gold/10 rounded-sm hover:border-accent-gold transition duration-300 bg-primary-dark shadow-xl" style="transition-delay: 0.2s;">
+                    <!-- Ícone SVG - Régua e Lápis (Design) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg mx-auto mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h0a8 8 0 0 0 8-8 8 8 0 0 0-8-8v0a8 8 0 0 0-8 8 8 8 0 0 0 8 8z"></path><path d="M14 8l-8 8"></path></svg>
+                    <h3 class="text-2xl font-semibold mb-3 text-text-contrast">Curadoria Arquitetónica</h3>
+                    <p class="text-text-body font-extralight">Os nossos planos 3D consideram a integração estética com a sua paisagem, garantindo a coesão perfeita com a arquitetura existente.</p>
+                </div>
+                
+                <div class="p-8 reveal icon-shine-container border border-accent-gold/10 rounded-sm hover:border-accent-gold transition duration-300 bg-primary-dark shadow-xl" style="transition-delay: 0.3s;">
+                    <!-- Ícone SVG - Diamante (Exclusividade) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg mx-auto mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17l6-6-6-6-6 6 6 6z"></path><path d="M2 12l10 10 10-10"></path></svg>
+                    <h3 class="text-2xl font-semibold mb-3 text-text-contrast">Madeiras Raras e Certificadas</h3>
+                    <p class="text-text-body font-extralight">Utilizamos apenas madeiras de lei de proveniência rastreada (Ipê, Teca, Cumaru), selecionadas pela resistência e padrão estético.</p>
+                </div>
+                
+                <div class="p-8 reveal icon-shine-container border border-accent-gold/10 rounded-sm hover:border-accent-gold transition duration-300 bg-primary-dark shadow-xl" style="transition-delay: 0.4s;">
+                    <!-- Ícone SVG - Escudo (Durabilidade) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg mx-auto mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <h3 class="text-2xl font-semibold mb-3 text-text-contrast">Garantia de Longevidade</h3>
+                    <p class="text-text-body font-extralight">As nossas técnicas de montagem (juntas invisíveis) e tratamentos nano-tecnológicos garantem durabilidade de décadas.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- 4. SECÇÃO INOVAÇÃO (Layout mais Clean, sem linha de tempo complexa) -->
+    <section id="vantagens" class="section-padding bg-primary-dark text-text-contrast border-t border-b border-accent-gold/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-lg tracking-widest uppercase text-accent-gold text-center mb-2 reveal">O Futuro da Carpintaria</p>
+            <h2 class="text-6xl font-serif font-light text-center mb-24 reveal">Tecnologia, Não Apenas Madeira</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                
+                <div class="reveal p-6 border-l border-accent-gold/50" style="transition-delay: 0.2s;">
+                    <span class="text-5xl text-accent-gold font-serif mb-4 block opacity-80">01</span>
+                    <h3 class="text-2xl font-semibold mb-3 text-text-contrast">Simulação de Impacto Ambiental</h3>
+                    <p class="text-text-body font-light">Calculamos o ciclo de vida da madeira e o tratamento mais ecológico e durável para cada clima específico do seu imóvel.</p>
+                </div>
+                
+                <div class="reveal p-6 border-l border-accent-gold/50" style="transition-delay: 0.4s;">
+                    <span class="text-5xl text-accent-gold font-serif mb-4 block opacity-80">02</span>
+                    <h3 class="text-2xl font-semibold mb-3 text-text-contrast">Ferragens Ocultas em Latão</h3>
+                    <p class="text-text-body font-light">Utilizamos sistemas de fixação totalmente escondidos, reforçados com ligas de latão, eliminando corrosão visível e ruído.</p>
+                </div>
+                
+                <div class="reveal p-6 border-l border-accent-gold/50" style="transition-delay: 0.6s;">
+                    <span class="text-5xl text-accent-gold font-serif mb-4 block opacity-80">03</span>
+                    <h3 class="text-2xl font-semibold mb-3 text-text-contrast">Monitorização Remota</h3>
+                    <p class="text-text-body font-light">Opcionalmente, integramos sensores discretos nas peças mais críticas para monitorizar a humidade e alertar para manutenção preventiva.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. GALERIA (Portfólio com Efeito Dourado Subtil) -->
+    <section id="portfolio" class="section-padding bg-bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-lg tracking-widest uppercase text-accent-gold text-center mb-2 reveal">Galeria de Design</p>
+            <h2 class="text-6xl font-serif font-light text-text-contrast text-center mb-24 reveal">As Nossas Peças de Autor</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Item 1: Portão Pivotante em Ipê -->
+                <div class="portfolio-item group relative overflow-hidden rounded-sm shadow-2xl reveal" style="transition-delay: 0.2s;">
+                    <img src="https://placehold.co/600x800/222222/B88846?text=Portão+Pivotante+em+Ipê" alt="Portão Pivotante em Ipê" class="w-full h-96 object-cover transform transition duration-500 group-hover:scale-105">
+                    
+                    <!-- Overlay de Luxo (Fade-in simples) -->
+                    <div class="portfolio-overlay absolute inset-0 bg-primary-dark bg-opacity-85 flex flex-col items-center justify-center p-6">
+                        <h3 class="text-3xl font-serif tracking-wide text-accent-gold mb-2">Portão Pivotante</h3>
+                        <p class="text-base text-text-body font-light">Ipê Maciço e Engenharia Oculta</p>
+                        <span class="mt-6 text-xs tracking-widest uppercase border border-accent-gold text-accent-gold py-2 px-4 rounded-sm hover:bg-accent-gold hover:text-primary-dark transition duration-300">Ver Projeto</span>
+                    </div>
+                </div>
+
+                <!-- Item 2: Painéis de Teca Flutuantes -->
+                <div class="portfolio-item group relative overflow-hidden rounded-sm shadow-2xl reveal" style="transition-delay: 0.3s;">
+                    <img src="https://placehold.co/600x800/333333/B88846?text=Painéis+de+Teca+Flutuantes" alt="Painéis de Teca Flutuantes" class="w-full h-96 object-cover transform transition duration-500 group-hover:scale-105">
+                    <div class="portfolio-overlay absolute inset-0 bg-primary-dark bg-opacity-85 flex flex-col items-center justify-center p-6">
+                        <h3 class="text-3xl font-serif tracking-wide text-accent-gold mb-2">Painéis Flutuantes</h3>
+                        <p class="text-base text-text-body font-light">Vedação Estética em Teca</p>
+                        <span class="mt-6 text-xs tracking-widest uppercase border border-accent-gold text-accent-gold py-2 px-4 rounded-sm hover:bg-accent-gold hover:text-primary-dark transition duration-300">Ver Projeto</span>
+                    </div>
+                </div>
+                
+                <!-- Item 3: Pérgola Bioclimática -->
+                <div class="portfolio-item group relative overflow-hidden rounded-sm shadow-2xl reveal" style="transition-delay: 0.4s;">
+                    <img src="https://placehold.co/600x800/444444/B88846?text=Pérgola+Bioclimática+Personalizada" alt="Pérgola Bioclimática Personalizada" class="w-full h-96 object-cover transform transition duration-500 group-hover:scale-105">
+                    <div class="portfolio-overlay absolute inset-0 bg-primary-dark bg-opacity-85 flex flex-col items-center justify-center p-6">
+                        <h3 class="text-3xl font-serif tracking-wide text-accent-gold mb-2">Pérgola Bioclimática</h3>
+                        <p class="text-base text-text-body font-light">Estrutura de Madeira e Controlo de Luz</p>
+                        <span class="mt-6 text-xs tracking-widest uppercase border border-accent-gold text-accent-gold py-2 px-4 rounded-sm hover:bg-accent-gold hover:text-primary-dark transition duration-300">Ver Projeto</span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="text-center mt-24 reveal" style="transition-delay: 0.6s;">
+                <a href="#contacto" class="btn-lux-animated inline-block px-10 py-4 text-lg font-medium tracking-widest uppercase rounded-sm bg-accent-gold text-primary-dark transition duration-300">
+                    Ver Galeria Completa de Projetos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SECÇÃO CONTACTO (Call to Action e Formulário) -->
+    <section id="contacto" class="section-padding bg-primary-dark text-text-contrast border-t border-accent-gold/10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-lg tracking-widest uppercase text-accent-gold mb-2 reveal">Próxima Etapa</p>
+            <h2 class="text-6xl font-serif font-light mb-16 reveal">A Sua Consulta Premium Começa Aqui</h2>
+            
+            <form id="contact-form" class="space-y-8 max-w-lg mx-auto reveal" style="transition-delay: 0.2s;">
+                <!-- Campos de Input Escuros e Elegantes -->
+                <input type="text" placeholder="Nome Completo" required class="w-full p-4 bg-bg-light border border-accent-gold/20 rounded-sm text-text-contrast placeholder-text-body focus:ring-1 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
+                <input type="email" placeholder="Email de Contacto" required class="w-full p-4 bg-bg-light border border-accent-gold/20 rounded-sm text-text-contrast placeholder-text-body focus:ring-1 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
+                <textarea placeholder="Detalhes do Projeto (tipo, dimensões, etc.)" rows="6" required class="w-full p-4 bg-bg-light border border-accent-gold/20 rounded-sm text-text-contrast placeholder-text-body focus:ring-1 focus:ring-accent-gold focus:border-accent-gold transition duration-300"></textarea>
+                
+                <button type="submit" class="btn-lux-animated w-full px-8 py-4 text-xl font-bold tracking-widest uppercase rounded-sm bg-accent-gold text-primary-dark transition duration-300">
+                    Solicitar Proposta de Luxo
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 7. RODAPÉ (Dark e com Destaque Dourado) -->
+    <footer class="bg-bg-light text-text-body py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-accent-gold/30 pb-10 mb-8">
+                
+                <div>
+                    <h4 class="text-2xl font-serif font-bold text-accent-gold mb-4 font-light">M.A.</h4>
+                    <p class="text-sm font-extralight">Criamos peças arquitetónicas em madeira nobre, focadas em design de luxo e longevidade.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-serif font-bold text-text-contrast mb-4">O Que Fazemos</h4>
+                    <ul class="space-y-2 text-sm font-extralight">
+                        <li>Portões Personalizados</li>
+                        <li>Vedações de Autor</li>
+                        <li>Coberturas e Abrigos</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-serif font-bold text-text-contrast mb-4">Links</h4>
+                    <ul class="space-y-2 text-sm font-extralight">
+                        <li><a href="#missao" class="hover:text-accent-gold">A Marca</a></li>
+                        <li><a href="#vantagens" class="hover:text-accent-gold">Inovação</a></li>
+                        <li><a href="#portfolio" class="hover:text-accent-gold">Galeria</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-serif font-bold text-text-contrast mb-4">Contacto</h4>
+                    <p class="text-sm font-extralight">Email: consultoria@madeirasautor.pt</p>
+                    <p class="text-sm font-extralight">Tel: +351 9XX XXX XXX</p>
+                    <p class="text-sm font-extralight">Morada: Atelier de Design, Lisboa</p>
+                </div>
+            </div>
+            
+            <div class="text-center text-sm pt-4 border-t border-accent-gold/10">
+                <span class="text-accent-gold">Madeiras de Autor</span> &copy; 2025. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Lógica de Scroll Reveal
+            const elementsToAnimate = document.querySelectorAll('.reveal');
+
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px 0px -150px 0px', // Revelar um pouco mais cedo
+                threshold: 0 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            elementsToAnimate.forEach(el => {
+                // Não animar o Hero, pois já está visível
+                if (!el.closest('#hero-section')) {
+                    observer.observe(el);
+                } else {
+                    el.classList.add('is-visible'); 
+                }
+            });
+            
+            // Lógica do Formulário (Simulação de Envio)
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const button = e.target.querySelector('button');
+                const originalText = button.textContent;
+                
+                // Simulação de mensagem de sucesso (melhor que alert)
+                button.textContent = "Consulta Marcada! Receberá um contacto em 24h.";
+                button.classList.add('message-success');
+                button.classList.remove('bg-accent-gold');
+                
+                // Resetar após 4 segundos
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('message-success');
+                    button.classList.add('bg-accent-gold');
+                    e.target.reset(); 
+                }, 4000);
+            });
+        });
+    </script>
+</body>
+</html>
