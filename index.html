@@ -105,7 +105,7 @@
             opacity: 0;
         }
 
-        /* Estilo para a mensagem de sucesso */
+        /* Estilo para a mensagem de sucesso (mantido, mas inutilizado) */
         .message-success {
             background-color: #38a169; 
             color: white;
@@ -142,7 +142,7 @@
         <div class="relative max-w-7xl mx-auto p-8 z-10 text-text-contrast">
             <!-- Título Principal (Mais fino, maior e DOURADO mais intenso) -->
             <h1 class="text-8xl sm:text-9xl lg:text-[10rem] font-serif font-light mb-8 leading-none reveal" style="transition-delay: 0.2s;">
-                <span class="text-accent-gold">Oficina</span> de Madeiras
+                <span class="text-accent-gold">Design</span> de Autor.
             </h1>
             <p class="text-xl sm:text-3xl mb-12 font-extralight text-text-body max-w-4xl mx-auto reveal leading-relaxed" style="transition-delay: 0.4s;">
                 Criamos peças arquitetónicas em madeira nobre que elevam o seu espaço exterior. Exclusividade, performance e arte em cada junta.
@@ -273,11 +273,16 @@
             <p class="text-lg tracking-widest uppercase text-accent-gold mb-2 reveal">Próxima Etapa</p>
             <h2 class="text-6xl font-serif font-light mb-16 reveal">A Sua Consulta Premium Começa Aqui</h2>
             
-            <form id="contact-form" class="space-y-8 max-w-lg mx-auto reveal" style="transition-delay: 0.2s;">
-                <!-- Campos de Input Escuros e Elegantes -->
-                <input type="text" placeholder="Nome Completo" required class="w-full p-4 bg-bg-light border border-accent-gold/20 rounded-sm text-text-contrast placeholder-text-body focus:ring-1 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
-                <input type="email" placeholder="alexandrexbdcosme@gmail.com" required class="w-full p-4 bg-bg-light border border-accent-gold/20 rounded-sm text-text-contrast placeholder-text-body focus:ring-1 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
-                <textarea placeholder="Detalhes do Projeto (tipo, dimensões, etc.)" rows="6" required class="w-full p-4 bg-bg-light border border-accent-gold/20 rounded-sm text-text-contrast placeholder-text-body focus:ring-1 focus:ring-accent-gold focus:border-accent-gold transition duration-300"></textarea>
+            <!-- FORMULÁRIO COM MAILTO: ATIVADO -->
+            <form id="contact-form" action="mailto:alexandrexbdcosme@gmail.com" method="POST" enctype="text/plain" class="space-y-8 max-w-lg mx-auto reveal" style="transition-delay: 0.2s;">
+                
+                <!-- Campo oculto para o Assunto do email -->
+                <input type="hidden" name="Assunto" value="Pedido de Proposta de Luxo - Madeiras de Autor">
+                
+                <!-- Campos de Input Escuros e Elegantes com atributo 'name' para mailto -->
+                <input type="text" name="Nome Completo" placeholder="Nome Completo" required class="w-full p-4 bg-bg-light border border-accent-gold/20 rounded-sm text-text-contrast placeholder-text-body focus:ring-1 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
+                <input type="email" name="Email de Contacto" placeholder="Email de Contacto" required class="w-full p-4 bg-bg-light border border-accent-gold/20 rounded-sm text-text-contrast placeholder-text-body focus:ring-1 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
+                <textarea name="Detalhes do Projeto" placeholder="Detalhes do Projeto (tipo, dimensões, etc.)" rows="6" required class="w-full p-4 bg-bg-light border border-accent-gold/20 rounded-sm text-text-contrast placeholder-text-body focus:ring-1 focus:ring-accent-gold focus:border-accent-gold transition duration-300"></textarea>
                 
                 <button type="submit" class="btn-lux-animated w-full px-8 py-4 text-xl font-bold tracking-widest uppercase rounded-sm bg-accent-gold text-primary-dark transition duration-300">
                     Solicitar Proposta de Luxo
@@ -359,27 +364,8 @@
                 }
             });
             
-            // Lógica do Formulário (Simulação de Envio)
-            const contactForm = document.getElementById('contact-form');
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const button = e.target.querySelector('button');
-                const originalText = button.textContent;
-                
-                // Simulação de mensagem de sucesso (melhor que alert)
-                button.textContent = "Consulta Marcada! Receberá um contacto em 24h.";
-                button.classList.add('message-success');
-                button.classList.remove('bg-accent-gold');
-                
-                // Resetar após 4 segundos
-                setTimeout(() => {
-                    button.textContent = originalText;
-                    button.classList.remove('message-success');
-                    button.classList.add('bg-accent-gold');
-                    e.target.reset(); 
-                }, 4000);
-            });
+            // NOTE: A lógica de simulação de envio do formulário (e.preventDefault()) foi REMOVIDA
+            // para permitir que o atributo action="mailto:..." funcione corretamente, abrindo o cliente de email.
         });
     </script>
 </body>
